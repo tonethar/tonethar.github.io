@@ -94,14 +94,31 @@ const createRandomFlower = (x, y) => {
 };
 
 /**
- * @name initFlowerSprites
- * @desc instantiates initial flower using defaults and adds it to flowers list.
+ * @name initFlowerSprite
+ * @desc clears flowers list, instantiates initial flower using defaults, and adds it to list.
  */
-const initFlowerSprites = () => {
-  // clear list
+const initFlowerSprite = () => {
+  // clear flower list
   state.flowerList.length = 0;
   // add flower to list
   addFlowerToList(createFlowerWithCurrentUISettings(appDefaults.canvasWidth/2, appDefaults.canvasHeight/2));
+};
+
+/**
+ * @name initRandomFlowerSprites
+ * @param {number} howMany 
+ * @desc clears flowers list, instantiates random flowers, and adds them to list.
+ */
+const initRandomFlowerSprites = (howMany) => {
+  // clear flower list
+  state.flowerList.length = 0;
+   // add random flowers to list
+  for(let i = 0; i < howMany; i++){
+    const padding = appDefaults.randomFlowerPadding;
+    const x = randomNumber(padding, appDefaults.canvasWidth-padding);
+    const y = randomNumber(padding, appDefaults.canvasHeight-padding);
+    addFlowerToList(createRandomFlower(x, y));
+  }
 };
 
 /**
@@ -146,6 +163,7 @@ const init = () => {
   /**
    * @name canvasClickFunction
    * @param {MouseEvent} e 
+   * @desc inner function scoped to init
    */
   const canvasClickFunction = e => {
     /** @type {IPoint} */
@@ -163,7 +181,8 @@ const init = () => {
     getPetalColorFunction: getPetalColorFunction,
     goFullScreenFunction: () => goFullScreen(canvas),
     resetFunction: () => window.location.reload(),
-    restartFunction: initFlowerSprites,
+    restartFunction: initFlowerSprite,
+    gimme10Function: () => initRandomFlowerSprites(10),
   };
   setupUI(appDefaults, state, uiCallbacks);
 
@@ -182,7 +201,8 @@ const init = () => {
   }, appDefaults.randomFlowerDelay);
 
   // initialize starting flower
-  initFlowerSprites();
+  initFlowerSprite();
+  //initRandomFlowerSprites(10);
 
   // IV. start up app
   loop(state.ctx);

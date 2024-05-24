@@ -1,6 +1,7 @@
 // @ts-check
 /* eslint max-params: 0 */
 
+import "./types/IFlowerPetalDrawFunc.js";
 import { randomArrayElement } from "./utils/utils.js";
 
 /**

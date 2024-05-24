@@ -1,6 +1,7 @@
 // @ts-check
 
 /* IMPORTS */
+import "../types/IFlowerParams.js";
 import { dtr } from "../utils/utils.js";
 
 /** 

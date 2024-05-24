@@ -1,7 +1,7 @@
 // @ts-check
 import { colorFunctionKeys} from "./app-petal-color-functions.js";
 import { drawFunctionKeys } from "./app-petal-draw-functions.js";
-
+import "./types/IAppDefaults.js";
 
 /**
  * @module app-defaults

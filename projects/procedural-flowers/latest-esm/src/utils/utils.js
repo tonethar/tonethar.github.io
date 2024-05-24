@@ -1,6 +1,7 @@
 // @ts-check
 /* eslint max-params: 0 */
 
+import "../types/IPoint.js";
 
 /**
  * @module utils
