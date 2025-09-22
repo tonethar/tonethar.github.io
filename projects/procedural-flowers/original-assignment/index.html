@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phyllo 3 (Desktop)</title>
+  <style>canvas{ border: 1px solid black; }</style>
+  <!-- <script type="module" src="./src/main.js"></script> -->
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div id="controls">
+    <label>Divergence Angle</label>
+    <select id="ctrl-divergence">
+      <option value="137.1">137.1</option>
+      <option value="137.3">137.3</option>
+      <option value="137.5" selected>137.5</option>
+      <option value="137.7">137.7</option>
+      <option value="137.7">137.9</option>
+    </select>
+    <button id="btn-restart">Restart App</button>
+  </div>
+</body>
+<script src="dist/bundle.js"></script>
+</html>

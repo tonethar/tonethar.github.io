@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phyllo 5 (Desktop)</title>
+  <style>
+    body{ font-family: sans-serif; }
+    canvas{ border: 1px solid lightgray; }
+    label{ border: 1px solid lightgray; padding: .25em; margin-right: .25em;  }
+    button{ font-size: 1.1em; padding: .2em; }
+    #controls{ max-width: 800px; margin-top:.33em; }
+    p{ border-top: 1px dashed darkgray; margin-top: .5em; padding: .2em; }
+    h2{ margin-bottom: .2em; }
+    ul{ margin-top: 0; }
+  </style>
+  <!-- <script type="module" src="./src/app-main.js"></script> -->
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div id="controls">
+    <label title="Amount of rotation in degrees between successive petals.">Divergence angle:
+      <select id="ctrl-divergence"></select>
+    </label>
+
+    <label title="Divergence angle increase per frame.">Divergence angle delta:
+      <select id="ctrl-delta-divergence"></select>
+    </label>
+
+    <label title="Initial petal size in pixels">Petal size:
+      <select id="ctrl-petal-size"></select>
+    </label>
+
+    <label title="Petal size increase per frame">Petal size delta:
+      <select id="ctrl-delta-petal-size"></select>
+    </label>
+
+    <br><br>
+
+    <label title="Initial petal spacing.">Petal spacing:
+      <select id="ctrl-c"></select>
+    </label>
+
+    <label title="Petal spacing increase per frame.">Petal spacing delta:
+      <select id="ctrl-delta-c"></select>
+    </label>
+    
+     <br><br>
+
+    <label title="How each petal is drawn">Petal Style:
+      <select id="ctrl-petal-style"></select>
+    </label>
+
+    <label title="Function that determines color of petals">Petal Color:
+      <select id="ctrl-petal-color"></select>
+    </label>
+   
+    <br><br>
+
+    <label title="">
+      Clear every frame? 
+      <input id="cb-clear-every-frame" type="checkbox" checked>
+    </label>
+
+    <label title="New flowers with random parameters will spawn periodically.">
+      Spawn random flowers? 
+      <input id="cb-random-flowers" type="checkbox" checked>
+    </label>
+
+    <br><br>
+    
+    <button 
+      id="btn-gimme-10" 
+      title="Clears screen and creates 10 random flowers. (Keyboard shortcut 'g')"
+    >Clear & Gimme 10 Flowers</button>
+
+    <button 
+      id="btn-restart" 
+      title="Clears screen and restarts Flower animation using current control settings"
+    >Clear & Restart</button>
+
+    <button 
+      id="btn-reset"
+      title="Clears screen, resets controls to default values and restarts Flower animation"
+    >Reset UI & Restart</button>
+
+    <button 
+      id="btn-fs"
+      title="Put the canvas in full screen. Press escape key to exit."
+    >Go Full Screen</button>
+
+    <div>
+      <h2>Instructions</h2>
+      <ul>
+        <li>Click on canvas to create new flowers.</li>
+        <li>Use above controls to change parameters of most recently created flower and any new flowers.</li>
+        <li>"Gimme 10" button has a keyboard shortcut of 'g'.</li>
+        <li>Mouse over controls for additional instructions.</li>
+        <li>For a "Kiosk Mode" that does not require any user interaction, check "Spawn Flowers" and then click "Go Full Screen" - enjoy!</li>
+        <li><a href="https://github.com/tonethar/24-procedural-flowers/tree/v5">Source code repository</a></li>
+      </ul>
+    </div>
+    
+  </div>
+</body>
+<script src="dist/bundle.js"></script>
+</html>
